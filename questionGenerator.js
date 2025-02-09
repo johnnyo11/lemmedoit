@@ -68,10 +68,15 @@ export const generatingQuestion = (questionContainer, questionData, endpoint, st
 
         // Get the current form action URL
         const currentAction = new URL(form.action, window.location.origin);
+        let existingParams = new URLSearchParams(window.location.search);
+        const secret_code = existingParams.get('secret_code');
+
+        if (secret_code) {
+            existingParams = new URLSearchParams(decryptParams(secret_code));
+        }
 
         if (stackSearch) {
-            const newParams = new URLSearchParams(window.location.search);
-            newParams.forEach((value, key) => {
+            existingParams.forEach((value, key) => {
                 currentAction.searchParams.append(key, value);
             });
         }
