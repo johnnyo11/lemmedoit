@@ -23,7 +23,7 @@ const teleportButton = (nopeButton, buttonContainer) => {
 export const onClick = async() => {
     const nopeButton = document.getElementById('nope-button');
     const buttonContainer = document.getElementById('button-container');
-    
+    const yesButton = document.getElementById('yes-button');
     if (!nopeButton) {
         alert('Nope button not found!');
         return;
@@ -35,8 +35,13 @@ export const onClick = async() => {
     }
     
     teleportButton(nopeButton, buttonContainer);
+
+    var currentFontSize = parseInt(
+        window.getComputedStyle(yesButton).fontSize
+      );
+      yesButton.style.fontSize = currentFontSize + 10 + "px";
 }
 
 export const redirectToSubmitPage = () => {
-    window.location.href = "/submit.html";
+    window.location.href = "/mcq.html";
 }
