@@ -57,5 +57,5 @@ export const onHover = async() => {
 }
 
 export const redirectToSubmitPage = () => {
-    redirect('mcq.html');
+    window.location.href = "/repo-name/mcq.html";;
 }
