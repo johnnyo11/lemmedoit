@@ -1,5 +1,3 @@
-import { redirect } from "./router.js";
-
 function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -57,5 +55,5 @@ export const onHover = async() => {
 }
 
 export const redirectToSubmitPage = () => {
-    redirect('mcq.html');
+    window.location.href = "mcq.html";
 }
