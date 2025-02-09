@@ -27,7 +27,7 @@ const generatingQuestionAnswer = (inputValue, answers, container) => {
     }
 }
 
-export const generatingQuestion = (questionContainer, questionData, endpoint, stackSearch = false, encryption = false) => {
+export const generatingQuestion = (questionContainer, questionData, endpoint, lastQuestion = false, stackSearch = false, encryption = false) => {
 
     if (!questionContainer) {
         alert("Question container not found");
@@ -92,8 +92,12 @@ export const generatingQuestion = (questionContainer, questionData, endpoint, st
             url = url.replace(currentAction.searchParams.toString(), `secret_code=${encryptedParams}`);
         }
 
-        navigator.clipboard.writeText(url);
-        alert("The link is copied, send it to your valentine!");
+        if (lastQuestion) {
+            navigator.clipboard.writeText(url);
+            alert("The link is copied, send it to your valentine!");
+        } else {
+            window.location.href = url;
+        }
     });
 }
 
