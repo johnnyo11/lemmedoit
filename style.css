@@ -8,6 +8,8 @@ body {
     flex-direction: column;
 }
 
+
+
 button {
     position: relative;
     min-height: 40px;
@@ -104,11 +106,16 @@ button[absolute=""] {
     position: absolute;
 }
 
+.question-form {
+    display: flex;
+    flex-direction: column;
+}
+
 .activity-selection {
     padding-top: 30px;
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    gap: 30px;
     max-width: 100vw;
     flex-wrap: wrap;
 }
@@ -122,14 +129,28 @@ button[absolute=""] {
 .activity-item img {
     width: 300px;
     height: 250px;
+
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+
     border-radius: 50%;
+    border-width: 1px;
+    border-style: solid;
 }
 
 .activity-item label {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 }
+
+.activity-item-input {
+    display: flex;
+    gap: 10px;
+}
+
+
+
 
 .background {
     background-color: rgba(255,255,255,0.7);
