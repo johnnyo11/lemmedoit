@@ -55,5 +55,5 @@ export const onHover = async() => {
 }
 
 export const redirectToSubmitPage = () => {
-    window.location.href = "mcq.html";
+    location.href = "mcq.html";
 }
