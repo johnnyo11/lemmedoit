@@ -1,3 +1,3 @@
-export const displayQuestions = () => {
+export const displayCheckboxQuestions = () => {
     
 }

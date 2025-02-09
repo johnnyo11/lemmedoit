@@ -1,5 +1,5 @@
-import { config } from "./config.js";
+import { websiteConfig } from "./config.js";
 
 export const redirect = (endpoint) => {
-    window.location.href = `/${config.repoName ? `${config.repoName}/` : ''}${endpoint}`;
+    window.location.href = `/${websiteConfig.repoName ? `${websiteConfig.repoName}/` : ''}${endpoint}`;
 }

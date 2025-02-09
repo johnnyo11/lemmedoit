@@ -1,3 +1,6 @@
-export const config = {
-    repoName: window.location.hostname === "https://johnnyo11.github.io" ? "lemmedoit" : null,
+const HOST_NAME = "https://johnnyo11.github.io";
+const REPO_NAME = "lemmedoit";
+
+export const websiteConfig = {
+    repoName: window.location.hostname === HOST_NAME ? REPO_NAME : null,
 };
