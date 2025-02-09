@@ -52,15 +52,19 @@ button:hover {
     color: white;
 }
 
+.please-img {
+    height: 250px;
+    width: 250px;
+}
+
 .container {
     position: relative;
     height: 100%;
     width: 100%;
-    
-    justify-content: center;
-    align-items: center;
+}
 
-    overflow: hidden;
+[className*="relative"] {
+    position: relative;
 }
 
 [className*="flex"] {
@@ -71,7 +75,32 @@ button:hover {
     gap: 10px;
 }
 
-button[moved=""] {
+[className*="flex-center"] {
+    justify-content: center;
+    align-items: center;
+}
+
+[className*="overflow-hidden"] {
+    overflow: hidden;
+}
+
+[className*="w-full"] {
+    width: 100%;
+}
+
+[className*="h-full"] {
+    height: 100%;
+}
+
+[className*="justify-center"] {
+    justify-content: center;
+}
+
+[className*="align-center"] {
+    align-items: center;
+}
+
+button[absolute=""] {
     position: absolute;
 }
 

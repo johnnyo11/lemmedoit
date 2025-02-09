@@ -2,28 +2,44 @@ function delay(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-const teleportButton = (nopeButton, buttonContainer) => {
-    const buttonContainerHeight = buttonContainer.clientHeight;
-    const buttonContainerWidth = buttonContainer.clientWidth; 
+const teleportButton = (button, container) => {
+    const buttonContainerHeight = container.clientHeight;
+    const buttonContainerWidth = container.clientWidth; 
 
-    const maxTeleportHeight = buttonContainerHeight - nopeButton.clientHeight + 1;
-    const maxTeleportWidth = buttonContainerWidth - nopeButton.clientWidth + 1;
+    const maxTeleportHeight = buttonContainerHeight - button.clientHeight + 1;
+    const maxTeleportWidth = buttonContainerWidth - button.clientWidth + 1;
 
     const randomHeight = Math.floor(Math.random() * (maxTeleportHeight));
     const randomWidth = Math.floor(Math.random() * (maxTeleportWidth));
 
-    if (!nopeButton.getAttribute('moved')) {
-        nopeButton.setAttribute('moved', '');
+    if (!button.getAttribute('absolute')) {
+        button.setAttribute('absolute', '');
     };
 
-    nopeButton.style.left = randomWidth + 'px';
-    nopeButton.style.top = randomHeight + 'px';
+    button.style.left = randomWidth + 'px';
+    button.style.top = randomHeight + 'px';
 }
 
-export const onClick = async() => {
+const enlargeButton = (button, enlargeSize, beAbsolute = false) => {
+    var currentFontSize = parseInt(
+        window.getComputedStyle(button).fontSize
+    );
+
+    
+
+    button.style.fontSize = currentFontSize + enlargeSize + "px";
+}
+
+export const onHover = async() => {
     const nopeButton = document.getElementById('nope-button');
-    const buttonContainer = document.getElementById('button-container');
     const yesButton = document.getElementById('yes-button');
+    const buttonContainer = document.getElementById('button-container');
+    
+    if (!yesButton) {
+        alert('Yes button not found!');
+        return;
+    }
+
     if (!nopeButton) {
         alert('Nope button not found!');
         return;
@@ -34,12 +50,8 @@ export const onClick = async() => {
         return;
     }
     
-    teleportButton(nopeButton, buttonContainer);
-
-    var currentFontSize = parseInt(
-        window.getComputedStyle(yesButton).fontSize
-      );
-      yesButton.style.fontSize = currentFontSize + 10 + "px";
+    teleportButton(nopeButton, document.body);
+    enlargeButton(yesButton, 20, true);
 }
 
 export const redirectToSubmitPage = () => {
