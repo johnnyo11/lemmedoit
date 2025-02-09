@@ -57,5 +57,5 @@ export const onHover = async() => {
 }
 
 export const redirectToSubmitPage = () => {
-    router.redirect('mcq.html');
+    redirect('mcq.html');
 }
